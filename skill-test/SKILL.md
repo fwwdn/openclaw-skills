@@ -1,6 +1,6 @@
 ---
 name: skill-test
-description: Evaluate and QA a skill before release on ClawHub, skills.sh, and similar skill directories. Runs trigger checks, deterministic graders, LLM rubric scoring, and regression tracking for any SKILL.md package. Use when you need to test a skill, write evals, benchmark skill quality, catch regressions, audit trigger accuracy, verify outputs, compare skill versions, or decide whether a skill is ready to publish.
+description: Evaluate and QA a skill before release on ClawHub, skills.sh, and similar directories. Includes the bundled static evaluator `scripts/eval_skill.py` plus guidance for optional deterministic or LLM-assisted grading. Use when you need to test a skill, write evals, benchmark quality, catch regressions, audit trigger accuracy, compare versions, or decide whether a skill is ready to publish.
 metadata: { "openclaw": { "emoji": "🧪", "requires": { "bins": ["python3"] } } }
 ---
 
@@ -20,6 +20,14 @@ Always start by reading the target `SKILL.md`, then run:
 ```sh
 python3 {baseDir}/scripts/eval_skill.py <skill-path>
 ```
+
+## Included Tooling
+
+This package bundles one executable:
+
+- `scripts/eval_skill.py` for static quality, structure, and release-readiness checks
+
+Deterministic graders, runtime smoke tests, and LLM rubric grading are optional workflows you define around the target skill. They are not extra bundled executables inside this package.
 
 ## When to Use This Skill
 
@@ -115,7 +123,8 @@ Keep these limits explicit when reporting results:
 
 - Static analysis is not proof of runtime correctness
 - Baseline platform compatibility may be partial or inferred
-- LLM rubric grading requires a model provider and should be labeled as qualitative
+- The only bundled executable is `scripts/eval_skill.py`; deeper deterministic or LLM grading needs additional user-defined setup
+- LLM rubric grading is optional, requires an external model provider, and should be labeled as qualitative
 - Regression claims should cite a baseline, not intuition
 - If a skill depends on external systems, publish-readiness may still require manual verification
 - `eval.yaml` is an optional quality asset, not a universal release requirement
@@ -135,7 +144,8 @@ Call out these cases explicitly when they appear:
 
 - Python 3.10+ available as `python3`.
 - The target skill must have a `SKILL.md` with valid YAML frontmatter.
-- For LLM rubric grading, set one of: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, or `GEMINI_API_KEY`.
+- No API key is required for the bundled static evaluator.
+- If you choose to run external LLM rubric grading outside this package, configure the provider credentials required by your own grading environment.
 
 ## Example Prompts
 
@@ -152,7 +162,7 @@ Call out these cases explicitly when they appear:
 ## Workflow
 
 1. Identify the target skill folder. Read its `SKILL.md` to understand intent and structure.
-2. Run the static analyzer to get a baseline quality report:
+2. Run the bundled static analyzer to get a baseline quality report:
 
    ```sh
    python3 {baseDir}/scripts/eval_skill.py <skill-path>
@@ -165,8 +175,8 @@ Call out these cases explicitly when they appear:
 7. Read [references/publish-evaluation.md](references/publish-evaluation.md) when preparing a skill for ClawHub or skills.sh release.
 8. Based on the skill type, apply the appropriate evaluation strategy:
    - **Trigger evaluation**: test whether the skill activates for the right prompts and stays silent for wrong ones.
-   - **Deterministic grading**: check concrete outcomes (files created, commands run, structure correct).
-   - **LLM rubric grading**: score qualitative aspects (style compliance, workflow fidelity, convention adherence).
+   - **Deterministic grading**: check concrete outcomes (files created, commands run, structure correct) using target-skill-specific checks you define.
+   - **LLM rubric grading**: score qualitative aspects (style compliance, workflow fidelity, convention adherence) only if you intentionally add an external grading environment.
    - **Regression tracking**: compare scores across versions or model updates.
 9. Generate or refine an `eval.yaml` test suite for the target skill when repeatable regression testing is needed.
 10. Present results as a structured report with scores, findings, and actionable fixes.
