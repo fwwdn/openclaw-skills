@@ -1,0 +1,36 @@
+version: "1"
+defaults:
+  trials: 3
+  timeout: 300
+  threshold: 0.75
+skill: blog-writer
+trigger_tests:
+  - id: explicit-invoke
+    should_trigger: true
+    prompt: "Use the blog-writer skill to expand this outline into a publish-ready post."
+  - id: tutorial-post
+    should_trigger: true
+    prompt: "Write a blog post about onboarding remote engineers at a startup."
+  - id: rough-draft-rewrite
+    should_trigger: true
+    prompt: "Rewrite this messy draft into a cleaner blog article with better headings."
+  - id: negative-email
+    should_trigger: false
+    prompt: "Write a polite follow-up email after a product demo."
+outcome_tests:
+  - id: skill-package-layout
+    type: deterministic
+    checks:
+      - file_exists: "SKILL.md"
+      - file_exists: "scripts/write.js"
+      - file_exists: "scripts/models.js"
+      - file_exists: "references/domain.md"
+  - id: optional-quality
+    type: llm_rubric
+    rubric: |
+      The skill should:
+      - stay scoped to blog-style writing,
+      - emphasize readable and publishable structure,
+      - show realistic blog prompts near the top,
+      - include portable `{baseDir}` commands,
+      - document what happens when the skill is re-run.

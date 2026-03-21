@@ -1,0 +1,36 @@
+version: "1"
+defaults:
+  trials: 3
+  timeout: 300
+  threshold: 0.75
+skill: longform-writer
+trigger_tests:
+  - id: explicit-invoke
+    should_trigger: true
+    prompt: "Use the longform-writer skill to turn these notes into a polished long-form article."
+  - id: article-draft
+    should_trigger: true
+    prompt: "Write a 1500-word article about why remote teams need written culture."
+  - id: essay-rewrite
+    should_trigger: true
+    prompt: "Rewrite these rough notes into a coherent essay with a stronger narrative flow."
+  - id: negative-social
+    should_trigger: false
+    prompt: "Write a Twitter thread about why small teams ship faster."
+outcome_tests:
+  - id: skill-package-layout
+    type: deterministic
+    checks:
+      - file_exists: "SKILL.md"
+      - file_exists: "scripts/write.js"
+      - file_exists: "scripts/models.js"
+      - file_exists: "references/domain.md"
+  - id: optional-quality
+    type: llm_rubric
+    rubric: |
+      The skill should:
+      - stay scoped to long-form writing rather than general chat,
+      - explain prerequisites and paid-run constraints clearly,
+      - show realistic article or essay prompts near the top,
+      - include portable `{baseDir}` commands,
+      - document what happens when the skill is re-run.

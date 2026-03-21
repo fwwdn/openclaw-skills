@@ -1,0 +1,36 @@
+version: "1"
+defaults:
+  trials: 3
+  timeout: 300
+  threshold: 0.75
+skill: social-post-writer
+trigger_tests:
+  - id: explicit-invoke
+    should_trigger: true
+    prompt: "Use the social-post-writer skill to draft a Reddit post from this brief."
+  - id: x-thread
+    should_trigger: true
+    prompt: "Write a Twitter thread about why small teams ship faster."
+  - id: reddit-post
+    should_trigger: true
+    prompt: "Draft a Reddit post asking for feedback on my SaaS landing page."
+  - id: negative-longform
+    should_trigger: false
+    prompt: "Write a 1500-word article about remote-first onboarding."
+outcome_tests:
+  - id: skill-package-layout
+    type: deterministic
+    checks:
+      - file_exists: "SKILL.md"
+      - file_exists: "scripts/write.js"
+      - file_exists: "scripts/models.js"
+      - file_exists: "references/domain.md"
+  - id: optional-quality
+    type: llm_rubric
+    rubric: |
+      The skill should:
+      - stay scoped to short-form and platform-native writing,
+      - mention X/Twitter and Reddit clearly,
+      - show realistic thread or post prompts near the top,
+      - include portable `{baseDir}` commands,
+      - document what happens when the skill is re-run.
