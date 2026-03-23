@@ -1,6 +1,14 @@
-export const DEFAULT_MODEL = 'GPT_5_4';
+export const DEFAULT_MODEL = 'GEMINI_3_1_PRO';
 
 export const PRESETS = {
+  chat: {
+    id: 'chat',
+    label: 'general assistant chat',
+    maxTokens: 1800,
+    temperature: 0.7,
+    systemPrompt:
+      'You are a helpful general-purpose assistant. Answer clearly and directly, follow the user requested language, and preserve multi-turn context from the provided messages. Do not use markdown code fences unless explicitly requested.',
+  },
   adCopy: {
     id: 'adCopy',
     label: 'ad copy writing',

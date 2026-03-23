@@ -10,6 +10,8 @@ export async function runScript(argv, handler, helpText) {
   const ctx = {
     apiKey: process.env.WERYAI_API_KEY || '',
     baseUrl: process.env.WERYAI_BASE_URL || 'https://api.weryai.com',
+    defaultModel: (process.env.WERYAI_TEXT_MODEL || '').trim(),
+    pollProfile: 'fast',
     verbose: flags.verbose,
     dryRun: flags.dryRun,
     requestTimeoutMs: Number(process.env.WERYAI_REQUEST_TIMEOUT_MS) || 30_000,

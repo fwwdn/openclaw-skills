@@ -1,7 +1,7 @@
 ---
 name: summarizer
-description: Create, generate, convert, and polish summaries, abstracts, key-point digests, executive summaries, meeting summaries, and article summaries through the WeryAI chat completion API. Use when you need summarize text, compress long material, extract key points, turn notes into a concise digest, or produce a shorter high-signal version of source content.
-metadata: { "openclaw": { "emoji": "🧾", "primaryEnv": "WERYAI_API_KEY", "paid": true, "network_required": true, "requires": { "env": ["WERYAI_API_KEY"], "bins": ["node"], "node": ">=18" } } }
+description: "Create, generate, convert, and polish summaries, abstracts, key-point digests, executive summaries, meeting summaries, and article summaries as a prompt-driven OpenClaw skill. Use when you need summarize text, compress long material, extract key points, turn notes into a concise digest, or produce a shorter high-signal version of source content."
+metadata: { "openclaw": { "emoji": "🧾" } }
 ---
 
 # Summarizer
@@ -10,9 +10,7 @@ Write summaries, executive summaries, meeting summaries, article summaries, dige
 
 ## Prerequisites
 
-- `WERYAI_API_KEY` must be set before calling the API.
-- Node.js `>=18` is required because the runtime uses built-in `fetch`.
-- Real runs use the WeryAI chat completion API and may consume credits.
+- This skill is prompt-driven and does not require a WeryAI API key for its default OpenClaw use.
 
 ## Example Prompts
 
@@ -24,7 +22,7 @@ Write summaries, executive summaries, meeting summaries, article summaries, dige
 ## Quick Summary
 
 - Main jobs: `summary writing`, `abstract`, `key point digest`, `executive summary`, `meeting summary`, `article summary`
-- Default model: `GPT_5_4`
+- Default model: `GEMINI_3_1_PRO`
 - Main optional controls: `sourceText`, `length`, `format`, `language`, `audience`, `mustInclude`, `avoid`
 - Main trust signals: dry-run support, model lookup, summary-specific preset, direct compressed output
 
@@ -39,9 +37,6 @@ Write summaries, executive summaries, meeting summaries, article summaries, dige
 ## Commands
 
 ```sh
-# List available chat models
-node {baseDir}/scripts/models.js
-
 # Summarize source text
 node {baseDir}/scripts/write.js --json '{
   "prompt":"Summarize this article into 5 bullet points",

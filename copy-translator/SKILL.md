@@ -1,7 +1,7 @@
 ---
 name: copy-translator
-description: Create, generate, convert, and polish translated copy, localized copy, marketing translation, UI copy translation, and business text translation through the WeryAI chat completion API. Use when you need translate copy, localize wording, convert text between languages, preserve tone across languages, or adapt source copy for a new language and audience.
-metadata: { "openclaw": { "emoji": "🌐", "primaryEnv": "WERYAI_API_KEY", "paid": true, "network_required": true, "requires": { "env": ["WERYAI_API_KEY"], "bins": ["node"], "node": ">=18" } } }
+description: "Create, generate, convert, and polish translated copy, localized copy, marketing translation, UI copy translation, and business text translation as a prompt-driven OpenClaw skill. Use when you need translate copy, localize wording, convert text between languages, preserve tone across languages, or adapt source copy for a new language and audience."
+metadata: { "openclaw": { "emoji": "🌐" } }
 ---
 
 # Copy Translator
@@ -10,9 +10,7 @@ Translate and localize copy while preserving meaning, tone, and audience fit. Us
 
 ## Prerequisites
 
-- `WERYAI_API_KEY` must be set before calling the API.
-- Node.js `>=18` is required because the runtime uses built-in `fetch`.
-- Real runs use the WeryAI chat completion API and may consume credits.
+- This skill is prompt-driven and does not require a WeryAI API key for its default OpenClaw use.
 
 ## Example Prompts
 
@@ -24,7 +22,7 @@ Translate and localize copy while preserving meaning, tone, and audience fit. Us
 ## Quick Summary
 
 - Main jobs: `copy translation`, `text localization`, `marketing translation`, `ui copy translation`, `tone-preserving translation`
-- Default model: `GPT_5_4`
+- Default model: `GEMINI_3_1_PRO`
 - Main optional controls: `sourceLanguage`, `targetLanguage`, `tone`, `audience`, `format`, `mustInclude`, `avoid`
 - Main trust signals: dry-run support, model lookup, translation-specific preset, direct translated output
 
@@ -39,9 +37,6 @@ Translate and localize copy while preserving meaning, tone, and audience fit. Us
 ## Commands
 
 ```sh
-# List available chat models
-node {baseDir}/scripts/models.js
-
 # Translate copy
 node {baseDir}/scripts/write.js --json '{
   "prompt":"Translate this product copy into English and keep it natural",

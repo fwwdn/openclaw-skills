@@ -21,7 +21,7 @@ export function createWriteExecutor(presetId) {
     }
 
     const requestBody = {
-      model: normalizedInput.model || DEFAULT_MODEL,
+      model: normalizedInput.model || ctx.defaultModel || DEFAULT_MODEL,
       messages: buildMessages(normalizedInput, preset),
       max_tokens: normalizedInput.maxTokens ?? preset.maxTokens,
       temperature: normalizedInput.temperature ?? preset.temperature,

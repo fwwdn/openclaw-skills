@@ -1,7 +1,7 @@
 ---
 name: blog-writer
-description: Create, generate, convert, and polish blog posts, tutorials, thought pieces, and publish-ready drafts through the WeryAI chat completion API. Use when you need blog drafting, outline-to-blog expansion, convert notes into a structured article, transform a rough draft into a publishable post, or generate clearer headlines and sections.
-metadata: { "openclaw": { "emoji": "📝", "primaryEnv": "WERYAI_API_KEY", "paid": true, "network_required": true, "requires": { "env": ["WERYAI_API_KEY"], "bins": ["node"], "node": ">=18" } } }
+description: "Create, generate, convert, and polish blog posts, tutorials, thought pieces, and publish-ready drafts as a prompt-driven OpenClaw skill. Use when you need blog drafting, outline-to-blog expansion, convert notes into a structured article, transform a rough draft into a publishable post, or generate clearer headlines and sections."
+metadata: { "openclaw": { "emoji": "📝" } }
 ---
 
 # Blog Writer
@@ -10,9 +10,7 @@ Write blog posts, tutorials, and thought pieces that should be clear, scannable,
 
 ## Prerequisites
 
-- `WERYAI_API_KEY` must be set before calling the API.
-- Node.js `>=18` is required because the runtime uses built-in `fetch`.
-- Real runs use the WeryAI chat completion API and may consume credits.
+- This skill is prompt-driven and does not require a WeryAI API key for its default OpenClaw use.
 
 ## Example Prompts
 
@@ -24,7 +22,7 @@ Write blog posts, tutorials, and thought pieces that should be clear, scannable,
 ## Quick Summary
 
 - Main jobs: `blog writing`, `tutorial drafting`, `thought leadership post`, `outline to blog`, `rewrite rough post`
-- Default model: `GPT_5_4`
+- Default model: `GEMINI_3_1_PRO`
 - Main optional controls: `audience`, `tone`, `language`, `length`, `keywords`, `title`, `cta`
 - Main trust signals: dry-run support, model lookup, structured brief fields, readable blog-first output
 
@@ -39,9 +37,6 @@ Write blog posts, tutorials, and thought pieces that should be clear, scannable,
 ## Commands
 
 ```sh
-# List available chat models
-node {baseDir}/scripts/models.js
-
 # Write a blog post
 node {baseDir}/scripts/write.js --json '{
   "prompt":"Write a blog post about why product teams need better release notes",

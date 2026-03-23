@@ -1,7 +1,7 @@
 ---
 name: social-post-writer
-description: Create, generate, convert, and polish social posts, X or Twitter threads, Reddit posts, launch announcements, and short community updates through the WeryAI chat completion API. Use when you need platform-native short-form writing, generate a concise thread, convert a brief into hook-led posts, transform rough copy into Reddit-friendly wording, or draft launch updates.
-metadata: { "openclaw": { "emoji": "📣", "primaryEnv": "WERYAI_API_KEY", "paid": true, "network_required": true, "requires": { "env": ["WERYAI_API_KEY"], "bins": ["node"], "node": ">=18" } } }
+description: "Create, generate, convert, and polish social posts, X or Twitter threads, Reddit posts, launch announcements, and short community updates as a prompt-driven OpenClaw skill. Use when you need platform-native short-form writing, generate a concise thread, convert a brief into hook-led posts, transform rough copy into Reddit-friendly wording, or draft launch updates."
+metadata: { "openclaw": { "emoji": "📣" } }
 ---
 
 # Social Post Writer
@@ -10,9 +10,7 @@ Write social posts, X threads, Twitter threads, Reddit posts, and short launch u
 
 ## Prerequisites
 
-- `WERYAI_API_KEY` must be set before calling the API.
-- Node.js `>=18` is required because the runtime uses built-in `fetch`.
-- Real runs use the WeryAI chat completion API and may consume credits.
+- This skill is prompt-driven and does not require a WeryAI API key for its default OpenClaw use.
 
 ## Example Prompts
 
@@ -24,7 +22,7 @@ Write social posts, X threads, Twitter threads, Reddit posts, and short launch u
 ## Quick Summary
 
 - Main jobs: `x thread`, `twitter thread`, `reddit post`, `launch post`, `social rewrite`, `short community update`
-- Default model: `GPT_5_4`
+- Default model: `GEMINI_3_1_PRO`
 - Main optional controls: `format`, `tone`, `audience`, `language`, `length`, `cta`, `mustInclude`, `avoid`
 - Main trust signals: dry-run support, model lookup, platform-aware preset, direct post-ready output
 
@@ -39,9 +37,6 @@ Write social posts, X threads, Twitter threads, Reddit posts, and short launch u
 ## Commands
 
 ```sh
-# List available chat models
-node {baseDir}/scripts/models.js
-
 # Write a thread or post
 node {baseDir}/scripts/write.js --json '{
   "prompt":"Write a Twitter thread about why small teams ship faster",

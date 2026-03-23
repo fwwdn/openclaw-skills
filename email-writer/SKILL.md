@@ -1,7 +1,7 @@
 ---
 name: email-writer
-description: Create, generate, convert, and polish emails, follow-up emails, professional replies, outreach messages, internal updates, and business correspondence through the WeryAI chat completion API. Use when you need email drafting, generate a polite follow-up, convert rough notes into a send-ready email, transform a blunt draft into a clearer reply, or improve subject lines.
-metadata: { "openclaw": { "emoji": "📧", "primaryEnv": "WERYAI_API_KEY", "paid": true, "network_required": true, "requires": { "env": ["WERYAI_API_KEY"], "bins": ["node"], "node": ">=18" } } }
+description: "Create, generate, convert, and polish emails, follow-up emails, professional replies, outreach messages, internal updates, and business correspondence as a prompt-driven OpenClaw skill. Use when you need email drafting, generate a polite follow-up, convert rough notes into a send-ready email, transform a blunt draft into a clearer reply, or improve subject lines."
+metadata: { "openclaw": { "emoji": "📧" } }
 ---
 
 # Email Writer
@@ -10,9 +10,7 @@ Write emails, follow-up emails, reply emails, outreach emails, and internal upda
 
 ## Prerequisites
 
-- `WERYAI_API_KEY` must be set before calling the API.
-- Node.js `>=18` is required because the runtime uses built-in `fetch`.
-- Real runs use the WeryAI chat completion API and may consume credits.
+- This skill is prompt-driven and does not require a WeryAI API key for its default OpenClaw use.
 
 ## Example Prompts
 
@@ -24,7 +22,7 @@ Write emails, follow-up emails, reply emails, outreach emails, and internal upda
 ## Quick Summary
 
 - Main jobs: `email drafting`, `follow-up email`, `reply email`, `outreach email`, `subject line help`, `rewrite rough email`
-- Default model: `GPT_5_4`
+- Default model: `GEMINI_3_1_PRO`
 - Main optional controls: `recipient`, `sender`, `purpose`, `subject`, `tone`, `language`, `cta`, `mustInclude`, `avoid`
 - Main trust signals: dry-run support, model lookup, email-specific preset, direct send-ready output
 
@@ -39,9 +37,6 @@ Write emails, follow-up emails, reply emails, outreach emails, and internal upda
 ## Commands
 
 ```sh
-# List available chat models
-node {baseDir}/scripts/models.js
-
 # Write an email
 node {baseDir}/scripts/write.js --json '{
   "prompt":"Write a polite follow-up email after a product demo",

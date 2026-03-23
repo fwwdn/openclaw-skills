@@ -1,18 +1,18 @@
 ---
 name: rewrite-polisher
-description: Create, generate, convert, and polish rewrites, refined drafts, edited copy, tone-adjusted text, readability improvements, and clarity-focused revisions through the WeryAI chat completion API. Use when you need rewrite text, polish copy, improve clarity, adjust tone, tighten wording, or turn rough writing into a cleaner more readable version.
-metadata: { "openclaw": { "emoji": "✨", "primaryEnv": "WERYAI_API_KEY", "paid": true, "network_required": true, "requires": { "env": ["WERYAI_API_KEY"], "bins": ["node"], "node": ">=18" } } }
+description: "Create, generate, convert, and polish rewrites, refined drafts, edited copy, tone-adjusted text, readability improvements, and clarity-focused revisions as a prompt-driven OpenClaw skill. Use when you need rewrite text, polish copy, improve clarity, adjust tone, tighten wording, or turn rough writing into a cleaner more readable version."
+metadata: { "openclaw": { "emoji": "✨" } }
 ---
 
 # Rewrite Polisher
 
-Rewrite text, polish copy, improve clarity, adjust tone, tighten wording, and smooth readability while preserving the original meaning unless the user asks for a stronger transformation. Common asks include: rewrite this paragraph, polish this draft, make this copy clearer, adjust the tone, and tighten the wording. This rewrite and polish skill is for turning rough writing into a cleaner, clearer, more readable version without changing the deliverable type.
+Rewrite text, polish copy, improve clarity, adjust tone, tighten wording, and smooth readability while preserving the original meaning unless the user asks for a stronger transformation. Use this skill when the user says things like: rewrite this paragraph, polish this draft, make this copy clearer, improve the tone, tighten the wording, or make this writing more professional and readable. This rewrite and polish skill is for turning rough writing, messy drafts, product copy, announcements, and business text into a cleaner, clearer, more polished version without changing the deliverable type.
+
+Common jobs: `rewrite text`, `polish copy`, `improve clarity`, `adjust tone`, and `tighten wording` for paragraphs, emails, product copy, announcements, business writing, and rough drafts.
 
 ## Prerequisites
 
-- `WERYAI_API_KEY` must be set before calling the API.
-- Node.js `>=18` is required because the runtime uses built-in `fetch`.
-- Real runs use the WeryAI chat completion API and may consume credits.
+- This skill is prompt-driven and does not require a WeryAI API key for its default OpenClaw use.
 
 ## Example Prompts
 
@@ -23,8 +23,8 @@ Rewrite text, polish copy, improve clarity, adjust tone, tighten wording, and sm
 
 ## Quick Summary
 
-- Main jobs: `rewrite text`, `polish copy`, `tone adjustment`, `clarity edit`, `readability improvement`, `tighten wording`
-- Default model: `GPT_5_4`
+- Main jobs: `rewrite text`, `polish copy`, `improve clarity`, `tone adjustment`, `readability improvement`, `tighten wording`
+- Default model: `GEMINI_3_1_PRO`
 - Main optional controls: `sourceText`, `tone`, `audience`, `format`, `language`, `mustInclude`, `avoid`
 - Main trust signals: dry-run support, model lookup, rewrite-specific preset, direct polished output
 
@@ -39,9 +39,6 @@ Rewrite text, polish copy, improve clarity, adjust tone, tighten wording, and sm
 ## Commands
 
 ```sh
-# List available chat models
-node {baseDir}/scripts/models.js
-
 # Rewrite or polish text
 node {baseDir}/scripts/write.js --json '{
   "prompt":"Polish this draft without changing the core meaning",

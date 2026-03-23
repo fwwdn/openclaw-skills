@@ -1,7 +1,7 @@
 ---
 name: longform-writer
-description: Create, generate, convert, and polish long-form articles, essays, explainers, newsletters, and prose drafts through the WeryAI chat completion API. Use when you need long-form writing, article drafting, convert notes into a full piece, transform source material into a coherent multi-section document, or shape rough ideas into polished prose.
-metadata: { "openclaw": { "emoji": "✍️", "primaryEnv": "WERYAI_API_KEY", "paid": true, "network_required": true, "requires": { "env": ["WERYAI_API_KEY"], "bins": ["node"], "node": ">=18" } } }
+description: "Create, generate, convert, and polish long-form articles, essays, explainers, newsletters, and prose drafts as a prompt-driven OpenClaw skill. Use when you need long-form writing, article drafting, convert notes into a full piece, transform source material into a coherent multi-section document, or shape rough ideas into polished prose."
+metadata: { "openclaw": { "emoji": "✍️" } }
 ---
 
 # Longform Writer
@@ -10,9 +10,7 @@ Write long-form articles, essays, newsletters, and explainers that should read l
 
 ## Prerequisites
 
-- `WERYAI_API_KEY` must be set before calling the API.
-- Node.js `>=18` is required because the runtime uses built-in `fetch`.
-- Real runs use the WeryAI chat completion API and may consume credits.
+- This skill is prompt-driven and does not require a WeryAI API key for its default OpenClaw use.
 
 ## Example Prompts
 
@@ -24,7 +22,7 @@ Write long-form articles, essays, newsletters, and explainers that should read l
 ## Quick Summary
 
 - Main jobs: `long-form writing`, `article drafting`, `essay writing`, `newsletter drafting`, `rewrite into a full piece`
-- Default model: `GPT_5_4`
+- Default model: `GEMINI_3_1_PRO`
 - Main optional controls: `audience`, `tone`, `language`, `length`, `format`, `keywords`, `mustInclude`, `avoid`
 - Main trust signals: dry-run support, model lookup, structured brief fields, direct text output
 
@@ -39,9 +37,6 @@ Write long-form articles, essays, newsletters, and explainers that should read l
 ## Commands
 
 ```sh
-# List available chat models
-node {baseDir}/scripts/models.js
-
 # Write a long-form piece
 node {baseDir}/scripts/write.js --json '{
   "prompt":"Write a 1500-word article about remote-first onboarding",

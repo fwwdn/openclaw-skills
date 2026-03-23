@@ -1,7 +1,7 @@
 ---
 name: ad-copy-writer
-description: Create, generate, convert, and polish ad copy, marketing copy, product copy, landing page copy, headline variants, CTA variants, and promotional messaging through the WeryAI chat completion API. Use when you need advertising copy, campaign copy, product messaging, launch copy, performance copy variations, or concise persuasive text for marketing channels.
-metadata: { "openclaw": { "emoji": "🎯", "primaryEnv": "WERYAI_API_KEY", "paid": true, "network_required": true, "requires": { "env": ["WERYAI_API_KEY"], "bins": ["node"], "node": ">=18" } } }
+description: "Create, generate, convert, and polish ad copy, marketing copy, product copy, landing page copy, headline variants, CTA variants, and promotional messaging as a prompt-driven OpenClaw skill. Use when you need advertising copy, campaign copy, product messaging, launch copy, performance copy variations, or concise persuasive text for marketing channels."
+metadata: { "openclaw": { "emoji": "🎯" } }
 ---
 
 # Ad Copy Writer
@@ -10,9 +10,7 @@ Write ad copy, marketing copy, product copy, headline variants, CTA variants, an
 
 ## Prerequisites
 
-- `WERYAI_API_KEY` must be set before calling the API.
-- Node.js `>=18` is required because the runtime uses built-in `fetch`.
-- Real runs use the WeryAI chat completion API and may consume credits.
+- This skill is prompt-driven and does not require a WeryAI API key for its default OpenClaw use.
 
 ## Example Prompts
 
@@ -24,7 +22,7 @@ Write ad copy, marketing copy, product copy, headline variants, CTA variants, an
 ## Quick Summary
 
 - Main jobs: `ad copy writing`, `marketing copy`, `landing page copy`, `headline variants`, `cta variants`, `promotional rewrite`
-- Default model: `GPT_5_4`
+- Default model: `GEMINI_3_1_PRO`
 - Main optional controls: `product`, `brand`, `audience`, `tone`, `format`, `cta`, `keywords`, `mustInclude`, `avoid`
 - Main trust signals: dry-run support, model lookup, channel-aware preset, direct copy-ready output
 
@@ -39,9 +37,6 @@ Write ad copy, marketing copy, product copy, headline variants, CTA variants, an
 ## Commands
 
 ```sh
-# List available chat models
-node {baseDir}/scripts/models.js
-
 # Write ad copy
 node {baseDir}/scripts/write.js --json '{
   "prompt":"Write 5 ad copy variations for a productivity app launch",
