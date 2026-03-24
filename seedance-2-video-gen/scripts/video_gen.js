@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Seedance 2.0 video generation CLI for WeryAI.
+ * Werydance 2.0 video generation CLI for WeryAI.
  *
  * Commands:
  *   wait | submit-text | submit-image | submit-multi-image | submit-almighty | status | models
@@ -20,7 +20,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { formatApiError as formatSharedApiError, formatNetworkError as formatSharedNetworkError } from './vendor/weryai-core/errors.js';
 
-const DEFAULT_MODEL = 'SEEDANCE_2_0';
+const DEFAULT_MODEL = 'WERYDANCE_2_0';
 const BASE_URL = (process.env.WERYAI_BASE_URL || 'https://api.weryai.com').replace(/\/$/, '');
 const MODELS_BASE_URL = (process.env.WERYAI_MODELS_BASE_URL || 'https://api-growth-agent.weryai.com').replace(
   /\/$/,
@@ -38,7 +38,7 @@ const AUDIO_EXTS = new Set(['.mp3', '.wav']);
 const IMAGE_SIZE_MAX_BYTES = 10 * 1024 * 1024;
 const MEDIA_SIZE_MAX_BYTES = 50 * 1024 * 1024;
 const AUDIO_CAPABLE_MODEL_KEYS = new Set([
-  'SEEDANCE_2_0',
+  'WERYDANCE_2_0',
   'DOUBAO_1_5_PRO',
   'KLING_V3_0_STA',
   'KLING_V3_0_PRO',

@@ -28,7 +28,7 @@ const MODEL_DISPLAY_NAME_OVERRIDES = new Map([
   ['CHATBOT_VEO_3_1_FAST', 'Veo 3.1 Fast'],
   ['SORA_2', 'Sora 2'],
   ['SORA_2_PRO', 'Sora 2 Pro'],
-  ['SEEDANCE_2_0', 'Seedance 2.0'],
+  ['WERYDANCE_2_0', 'Werydance 2.0'],
   ['DOUBAO_1_5_PRO', 'Seedance 1.5 Pro'],
   ['DOUBAO_1_PRO_FAST', 'Seedance 1.0 Pro Fast'],
   ['DOUBAO_1_LITE', 'Seedance 1.0 Lite'],

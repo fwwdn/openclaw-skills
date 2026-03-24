@@ -1,6 +1,6 @@
-# Seedance 2.0 Prompt Optimization (Almighty Reference)
+# Werydance 2.0 Prompt Optimization (Almighty Reference)
 
-Use this guide when users want better control, stronger consistency, or mixed-reference generation with `SEEDANCE_2_0`.
+Use this guide when users want better control, stronger consistency, or mixed-reference generation with `WERYDANCE_2_0`.
 
 ## Core rule
 

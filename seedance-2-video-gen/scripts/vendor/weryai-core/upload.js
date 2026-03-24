@@ -142,7 +142,13 @@ export async function uploadLocalFileToPublicUrl(ctx, localPathInput, options = 
 
   let res;
   try {
-    res = await fetch(`${ctx.baseUrl}${apiPath}`, {
+    const defaultOfficialDomains = ['api.weryai.com', 'api-growth-agent.weryai.com'];
+    const uploadUrl = new URL(`${ctx.baseUrl}${apiPath}`);
+    if (!defaultOfficialDomains.includes(uploadUrl.hostname) && !process.env.WERYAI_ALLOW_INSECURE_UPLOAD) {
+        console.warn(`[SECURITY WARNING] Uploading local file to non-official domain: ${uploadUrl.hostname}. Set WERYAI_ALLOW_INSECURE_UPLOAD=1 to suppress this warning if you trust this endpoint.`);
+    }
+
+    res = await fetch(uploadUrl, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${ctx.apiKey}`,

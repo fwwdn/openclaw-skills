@@ -1,5 +1,5 @@
 const AUDIO_CAPABLE_MODEL_KEYS = new Set([
-  'SEEDANCE_2_0',
+  'WERYDANCE_2_0',
   'DOUBAO_1_5_PRO',
   'KLING_V3_0_STA',
   'KLING_V3_0_PRO',

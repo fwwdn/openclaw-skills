@@ -1,7 +1,7 @@
 ---
 name: seedance-2-video-gen
 version: 1.0.1
-description: "Generate Seedance 2.0 videos through WeryAI for text-to-video, image-to-video, multi-image video, and first-frame/last-frame transitions. Use when you need a Seedance 2.0 video generator, want to animate a reference image (prefer a public https URL), create a storyboard-to-video clip, migrate `image + last_image` workflows, or generate controlled start/end frame video with your WeryAI API key."
+description: "Generate Werydance 2.0 videos through WeryAI for text-to-video, image-to-video, multi-image video, and first-frame/last-frame transitions. Use when you need a Werydance 2.0 video generator, want to animate a reference image (prefer a public https URL), create a storyboard-to-video clip, migrate `image + last_image` workflows, or generate controlled start/end frame video with your WeryAI API key."
 
 tags: [seedance, seedance-2, video-gen, text-to-video, image-to-video, multi-image-video, almighty-reference, start-frame, end-frame, video-edit]
 
@@ -9,9 +9,9 @@ metadata: { "openclaw": { "emoji": "🎬", "primaryEnv": "WERYAI_API_KEY", "paid
 user-invocable: true
 ---
 
-# Seedance 2.0 video generator (almighty-ready)
+# Werydance 2.0 video generator (almighty-ready)
 
-Generate Seedance 2.0 videos on WeryAI with one skill for text-to-video, image-to-video, first-frame/last-frame transition video, multi-image storyboard video, and almighty mixed-reference video generation.
+Generate Werydance 2.0 videos on WeryAI with one skill for text-to-video, image-to-video, first-frame/last-frame transition video, multi-image storyboard video, and almighty mixed-reference video generation.
 Animate and transform scenes from single images, storyboard frames, or mixed references while keeping subject and motion continuity.
 
 **Dependencies:** `scripts/video_gen.js` at the skill package root (alongside `SKILL.md`) + `WERYAI_API_KEY` + Node.js 18+. No other Cursor skills are required.
@@ -53,7 +53,7 @@ export WERYAI_API_KEY="your_api_key_here"
 
 ```sh
 node scripts/video_gen.js models --mode text_to_video
-node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"A glowing koi swims through ink clouds","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}' --dry-run
+node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"A glowing koi swims through ink clouds","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}' --dry-run
 ```
 
 ## Modes and input shapes
@@ -167,22 +167,22 @@ node scripts/video_gen.js models --mode image_to_video
 node scripts/video_gen.js models --mode multi_image_to_video
 
 # Text-to-video (non-empty model required; default audio on)
-node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"A paper crane unfolds into a real bird, cinematic lighting, 9:16 vertical. Audio: soft paper rustle, gentle whoosh, quiet room tone.","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"A paper crane unfolds into a real bird, cinematic lighting, 9:16 vertical. Audio: soft paper rustle, gentle whoosh, quiet room tone.","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
 
 # Single image to video
-node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"Animate this portrait with subtle hair and cloth movement. Audio: faint fabric rustle, subtle room ambience.","image":"https://example.com/frame.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"Animate this portrait with subtle hair and cloth movement. Audio: faint fabric rustle, subtle room ambience.","image":"https://example.com/frame.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
 
 # Multi-image to video
-node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"Turn these storyboard frames into one coherent reveal shot. Audio: light transition whooshes, soft underscore.","images":["https://example.com/1.png","https://example.com/2.png","https://example.com/3.png"],"duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"Turn these storyboard frames into one coherent reveal shot. Audio: light transition whooshes, soft underscore.","images":["https://example.com/1.png","https://example.com/2.png","https://example.com/3.png"],"duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
 
 # First-frame / last-frame guided video
-node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"Start on the first frame and transition naturally to the last frame with the same subject and environment. Audio: smooth morph tone, airy ambience.","first_frame":"https://example.com/start.png","last_frame":"https://example.com/end.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"Start on the first frame and transition naturally to the last frame with the same subject and environment. Audio: smooth morph tone, airy ambience.","first_frame":"https://example.com/start.png","last_frame":"https://example.com/end.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
 
 # WaveSpeed-style compatibility alias
-node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"Transition smoothly from the start image to the end image. Audio: soft blend whoosh, quiet room.","image":"https://example.com/start.png","last_image":"https://example.com/end.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"Transition smoothly from the start image to the end image. Audio: soft blend whoosh, quiet room.","image":"https://example.com/start.png","last_image":"https://example.com/end.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
 
 # Preview without spending credits
-node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"A glowing koi swims through ink clouds. Audio: water shimmer, subtle chime.","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}' --dry-run
+node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"A glowing koi swims through ink clouds. Audio: water shimmer, subtle chime.","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}' --dry-run
 
 # Poll an existing task
 node scripts/video_gen.js status --task-id <task-id>
@@ -216,17 +216,17 @@ Done when the user receives at least one playable video URL, or a clear failure 
 
 > Frozen from the repository's current WeryAI capability snapshots. Re-run `node scripts/video_gen.js models` after platform upgrades.
 
-### Text-to-video (`SEEDANCE_2_0`)
+### Text-to-video (`WERYDANCE_2_0`)
 
 | model_key | durations | aspect_ratios | resolutions | Audio | negative_prompt | Prompt max |
 |-----------|-----------|---------------|-------------|-------|-----------------|------------|
-| `SEEDANCE_2_0` | 5, 10, 15 | 9:16, 1:1, 16:9 | 480p, 720p | Yes | No | 2000 |
+| `WERYDANCE_2_0` | 5, 10, 15 | 9:16, 1:1, 16:9 | 480p, 720p | Yes | No | 2000 |
 
-### Image-to-video (`SEEDANCE_2_0`)
+### Image-to-video (`WERYDANCE_2_0`)
 
 | model_key | durations | aspect_ratios | resolutions | Audio | negative_prompt | upload_image_limit |
 |-----------|-----------|---------------|-------------|-------|-----------------|-------------------|
-| `SEEDANCE_2_0` | 5, 10, 15 | 9:16, 1:1, 16:9 | 480p, 720p | Yes | No | 3 |
+| `WERYDANCE_2_0` | 5, 10, 15 | 9:16, 1:1, 16:9 | 480p, 720p | Yes | No | 3 |
 
 ### Multi-image and first-frame / last-frame
 
@@ -241,7 +241,7 @@ Done when the user receives at least one playable video URL, or a clear failure 
 
 | Field | Value |
 |-------|-------|
-| Model | `SEEDANCE_2_0` |
+| Model | `WERYDANCE_2_0` |
 | Aspect ratio | `9:16` |
 | Duration | `5` |
 | Resolution | `720p` |
@@ -252,7 +252,7 @@ Done when the user receives at least one playable video URL, or a clear failure 
 
 ## Text brief -> Seedance video
 
-Use this when the user has only an idea and wants Seedance 2.0 to generate the clip from scratch.
+Use this when the user has only an idea and wants Werydance 2.0 to generate the clip from scratch.
 
 **Need from the user:**
 
@@ -264,14 +264,14 @@ Use this when the user has only an idea and wants Seedance 2.0 to generate the c
 **Flow:**
 
 1. Expand the brief into a full English prompt.
-2. Keep `model` at `SEEDANCE_2_0` unless the user explicitly wants another model.
+2. Keep `model` at `WERYDANCE_2_0` unless the user explicitly wants another model.
 3. Show a confirmation table:
 
    > 📋 **Ready to generate - please confirm**
    >
    > | Field | This run | Notes |
    > |-------|----------|-------|
-   > | `model` | `SEEDANCE_2_0` | Override only if the user explicitly requests another model |
+   > | `model` | `WERYDANCE_2_0` | Override only if the user explicitly requests another model |
    > | `aspect_ratio` | `9:16` | Must stay inside the Seedance row |
    > | `duration` | `5` | Allowed: 5 / 10 / 15 |
    > | `resolution` | `720p` | Allowed: 480p / 720p |
@@ -281,7 +281,7 @@ Use this when the user has only an idea and wants Seedance 2.0 to generate the c
 4. After confirmation, run:
 
    ```sh
-   node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"...","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+   node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"...","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
    ```
 
 ---
@@ -303,7 +303,7 @@ Use this when the user already has one reference image and wants subtle or mediu
 3. Confirm parameters and URL, then run:
 
    ```sh
-   node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"...","image":"https://example.com/input.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+   node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"...","image":"https://example.com/input.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
    ```
 
 ---
@@ -325,7 +325,7 @@ Use this when the user wants several frames turned into one coherent shot or sho
 3. Confirm the final prompt plus ordered `images`, then run:
 
    ```sh
-   node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"...","images":["https://example.com/1.png","https://example.com/2.png","https://example.com/3.png"],"duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+   node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"...","images":["https://example.com/1.png","https://example.com/2.png","https://example.com/3.png"],"duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
    ```
 
 ---
@@ -347,7 +347,7 @@ Use this when the user wants tighter motion control from a known opening frame t
 3. Confirm both URLs and the full prompt, then run:
 
    ```sh
-   node scripts/video_gen.js wait --json '{"model":"SEEDANCE_2_0","prompt":"...","first_frame":"https://example.com/start.png","last_frame":"https://example.com/end.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
+   node scripts/video_gen.js wait --json '{"model":"WERYDANCE_2_0","prompt":"...","first_frame":"https://example.com/start.png","last_frame":"https://example.com/end.png","duration":5,"aspect_ratio":"9:16","resolution":"720p","generate_audio":true}'
    ```
 
 4. If the live registry rejects multi-image routing, reduce expectations: the runtime will fall back to single-image behavior with the first frame.

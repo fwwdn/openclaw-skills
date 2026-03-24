@@ -149,6 +149,7 @@ export async function execute(input, ctx) {
     ...result,
     taskClass,
     pollTimeoutMs,
+    requestSummary: buildRequestSummary(resolvedBody, effectiveMode),
   };
 }
 
@@ -200,6 +201,17 @@ function buildFallbackBody(input, model, effectiveMode) {
   return body;
 }
 
+function buildRequestSummary(body, mode) {
+  return {
+    mode,
+    model: body?.model ?? null,
+    duration: body?.duration ?? null,
+    aspectRatio: body?.aspect_ratio ?? null,
+    resolution: body?.resolution ?? null,
+    generateAudio: body?.generate_audio ?? null,
+  };
+}
+
 export function normalizeTaskClass(raw) {
   const value = String(raw ?? 'auto').trim().toLowerCase();
   if (value === 'auto' || value === 'short' || value === 'long') return value;
@@ -223,10 +235,10 @@ export function resolveVideoPollTimeoutMs(ctx, taskClass) {
 
   if (taskClass === 'short') {
     if (Number.isFinite(shortTimeout) && shortTimeout >= 0) return shortTimeout;
-    return 300_000;
+    return 600_000;
   }
   if (Number.isFinite(longTimeout) && longTimeout >= 0) return longTimeout;
-  return 1_200_000;
+  return 1_800_000;
 }
 
 export default execute;

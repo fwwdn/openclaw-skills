@@ -1,4 +1,4 @@
-# Seedance 2.0 Video Generator
+# Werydance 2.0 Video Generator
 
 Use this package when the task is Seedance video generation on WeryAI.
 
